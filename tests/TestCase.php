@@ -2,10 +2,13 @@
 
 namespace DoubleThreeDigital\AddonBoilerplate\Tests;
 
+use Statamic\Extend\Manifest;
+use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use DoubleThreeDigital\AddonBoilerplate\ServiceProvider;
 use Statamic\Providers\StatamicServiceProvider;
+use Statamic\Statamic;
 
-class TestCase
+abstract class TestCase extends OrchestraTestCase
 {
     protected function setUp(): void
     {
