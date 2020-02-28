@@ -1,0 +1,55 @@
+{
+    "name": "doublethreedigital/addon-boilerplate",
+    "type": "statamic-addon",
+    "description": "A Statamic 3 addon boilerplate",
+    "authors": [
+        {
+            "name": "Duncan McClean",
+            "email": "duncan@doublethree.digital",
+            "homepage": "http://duncanm.dev",
+            "role": "Founder of Double Three Digital"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DoubleThreeDigital\\AddonBoilerplate\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DoubleThreeDigital\\AddonBoilerplate\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Addon Boilerplate",
+            "description": "A Statamic 3 addon boilerplate"
+        },
+        "laravel": {
+            "providers": [
+                "DoubleThreeDigital\\AddonBoilerplate\\ServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "statamic/cms": "^3.0@beta"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.1"
+    },
+    "minimum-stability": "dev",
+    "scripts": {
+        "lint": [
+            "php-cs-fixer fix ./src"
+        ],
+        "test": [
+            "./vendor/bin/phpunit"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}
