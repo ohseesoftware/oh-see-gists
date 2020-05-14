@@ -29,7 +29,7 @@
     "require-dev": {
         "orchestra/testbench": "^4.0",
         "phpunit/phpunit": "^8.1",
-        "nunomaduro/collision": "^4.2",
+        "nunomaduro/collision": "^4.2"
     },
     "minimum-stability": "dev",
     "scripts": {
