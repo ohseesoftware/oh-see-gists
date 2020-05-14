@@ -1,14 +1,21 @@
-![Statamic 3.0+](https://img.shields.io/badge/Statamic-3.0+-FF269E?style=for-the-badge&link=https://statamic.com)
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/doublethreedigital/addon-boilerplate.svg?style=flat-square)](https://packagist.org/packages/doublethreedigital/addon-boilerplate)
+# Addon Boilerplate
+> Boilerplate for building testable Statamic 3 addons
 
-## About Addon Boilerplate
+This repository contains some boilerplate code to help you build testable Statamic 3 addons. Simply clone the repo, change the namespace references and get stuck in!
 
-This addon boilerplate is a base on which you can build testable Statamic 3 addons.
+We try to keep this boilerplate as fresh as possible, but things are always changing, especially while Statamic is in beta. If you spot something that needs to be updated, fork and make a pull request!
 
-## Using this boilerplate
+*This boilerplate is unofficial, it's not built by Statamic, it's built by [Double Three Digital](https://doublethree.digital).
 
-We've written [some documentation](./DOCUMENTATION.md) to help you out when using this boilerplate.
+## Documentation
+There's some documentation about the boilerplate [over here](./DOCUMENTATION.md).
 
-## Contributing
+## Resources
+* [Statamic 3 Docs](https://statamic.dev)
+* [Statamic Discord](https://statamic.com/discord)
+* [Simple Commerce (a big addon that does a lot of common things)](https://github.com/doublethreedigital/simple-commerce)
 
-Are you down with contributing? That's awesome, just make sure to follow [our contributors guide](./CONTRIBUTORS.md).
+<p>
+<a href="https://statamic.com"><img src="https://img.shields.io/badge/Statamic-3.0+-FF269E?style=for-the-badge" alt="Compatible with Statamic v3"></a>
+<a href="https://packagist.org/packages/doublethreedigital/addon-boilerplate/stats"><img src="https://img.shields.io/packagist/v/doublethreedigital/addon-boilerplate?style=for-the-badge" alt="Simple Commerce on Packagist"></a>
+</p>
