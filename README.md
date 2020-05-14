@@ -5,10 +5,10 @@ This repository contains some boilerplate code to help you build testable Statam
 
 We try to keep this boilerplate as fresh as possible, but things are always changing, especially while Statamic is in beta. If you spot something that needs to be updated, fork and make a pull request!
 
-*This boilerplate is unofficial, it's not built by Statamic, it's built by [Double Three Digital](https://doublethree.digital).
+*This boilerplate is unofficial, it's not built by Statamic, it's built by [Double Three Digital](https://doublethree.digital).*
 
 ## Documentation
-There's some documentation about the boilerplate [over here](./DOCUMENTATION.md).*
+There's some documentation about the boilerplate [over here](./DOCUMENTATION.md).
 
 ## Resources
 * [Statamic 3 Docs](https://statamic.dev)
