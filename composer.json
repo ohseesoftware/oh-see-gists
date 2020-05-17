@@ -28,9 +28,8 @@
         "statamic/cms": "^3.0@beta"
     },
     "require-dev": {
-        "orchestra/testbench": "^4.0",
-        "phpunit/phpunit": "^8.1",
-        "nunomaduro/collision": "^4.2"
+        "nunomaduro/collision": "^4.2",
+        "orchestra/testbench": "^5.0"
     },
     "minimum-stability": "dev",
     "scripts": {
