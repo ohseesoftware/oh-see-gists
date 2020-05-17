@@ -2,14 +2,7 @@
     "name": "doublethreedigital/addon-boilerplate",
     "type": "statamic-addon",
     "description": "A Statamic 3 addon boilerplate, ready for testing.",
-    "authors": [
-        {
-            "name": "Duncan McClean",
-            "email": "duncan@doublethree.digital",
-            "homepage": "http://duncanm.dev",
-            "role": "Founder of Double Three Digital"
-        }
-    ],
+    "license": "proprietary",
     "autoload": {
         "psr-4": {
             "DoubleThreeDigital\\AddonBoilerplate\\": "src"
@@ -35,8 +28,8 @@
         "statamic/cms": "^3.0@beta"
     },
     "require-dev": {
-        "orchestra/testbench": "^5.2",
-        "phpunit/phpunit": "^8.1"
+        "nunomaduro/collision": "^4.2",
+        "orchestra/testbench": "^5.0"
     },
     "minimum-stability": "dev",
     "scripts": {
@@ -50,6 +43,9 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+            "php": "7.3"
+        }
     }
 }
