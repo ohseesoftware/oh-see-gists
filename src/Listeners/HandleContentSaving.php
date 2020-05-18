@@ -65,29 +65,46 @@ class HandleContentSaving
 
     private function saveGist(array $gistData, array &$gistBlocks): void
     {
-        $gistId = null;
-        foreach ($gistBlocks as &$gistBlock) {
-            if (empty($gistId) && !empty($gistBlock['gist_id'])) {
-                $gistId = $gistBlock['gist_id'];
-            }
-        }
-
         if (empty($gistData['files'])) {
             return;
         }
 
-        if (empty($gistId)) {
-            // Create a new Gist
-            $response = $this->github->gists()->create($gistData);
+        $gistId = $this->getGistId($gistBlocks);
 
-            foreach ($gistBlocks as &$gistBlock) {
-                $gistBlock['gist_id'] = $response['id'];
-            }
-        
+        if (empty($gistId)) {
+            $this->createGist($gistData, $gistBlocks);
             return;
         }
 
-        // Update existing Gist
+        $this->updateGist($gistId, $gistData);
+    }
+
+    private function getGistId(array $gistBlocks): ?string
+    {
+        $gistId = null;
+        foreach ($gistBlocks as &$gistBlock) {
+            $gistBlockId = $gistBlock['gist_id'] ?? null;
+
+            if (!$gistBlockId || $gistId) {
+                continue;
+            }
+
+            $gistId = $gistBlockId;
+        }
+        return $gistId;
+    }
+
+    private function createGist(array $gistData, array &$gistBlocks)
+    {
+        $response = $this->github->gists()->create($gistData);
+
+        foreach ($gistBlocks as &$gistBlock) {
+            $gistBlock['gist_id'] = $response['id'];
+        }
+    }
+
+    private function updateGist(string $gistId, array $gistData)
+    {
         $this->github->gists()->update($gistId, $gistData);
     }
 
