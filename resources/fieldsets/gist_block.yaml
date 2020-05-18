@@ -1,0 +1,23 @@
+title: "Gist Block"
+fields:
+  gist_id:
+    type: hidden
+    localizable: false
+    display: Gist ID
+    instructions: The ID of the Gist where this code block is located.
+  gist_filename:
+    type: hidden
+    localizable: false
+    display: Gist Filename
+    instructions: The filename of the embed from the Gist.
+  code:
+    type: textarea
+    instructions: "The code you want to embed."
+    localizable: false
+    display: Code
+  extension:
+    character_limit: 3
+    type: text
+    localizable: false
+    display: File Extension
+    instructions: The file extension for this block of code.

@@ -1,21 +1,56 @@
-# Addon Boilerplate
-> Boilerplate for building testable Statamic 3 addons
+# Oh See Gists
 
-This repository contains some boilerplate code to help you build testable Statamic 3 addons. Simply clone the repo, change the namespace references and get stuck in!
+## Installation
 
-We try to keep this boilerplate as fresh as possible, but things are always changing, especially while Statamic is in beta. If you spot something that needs to be updated, fork and make a pull request!
+Install the add-on:
 
-*This boilerplate is unofficial, it's not built by Statamic, it's built by [Double Three Digital](https://doublethree.digital).*
+`composer require ohseesoftware/oh-see-gists`
 
-## Documentation
-There's some documentation about the boilerplate [over here](./DOCUMENTATION.md).
+Publish the add-on's assets:
 
-## Resources
-* [Statamic 3 Docs](https://statamic.dev)
-* [Statamic Discord](https://statamic.com/discord)
-* [Simple Commerce (a big addon that does a lot of common things)](https://github.com/doublethreedigital/simple-commerce)
+`php artisan vendor:publish --tag=oh-see-gists`
 
-<p>
-<a href="https://statamic.com"><img src="https://img.shields.io/badge/Statamic-3.0+-FF269E?style=for-the-badge" alt="Compatible with Statamic v3"></a>
-<a href="https://packagist.org/packages/doublethreedigital/addon-boilerplate/stats"><img src="https://img.shields.io/packagist/v/doublethreedigital/addon-boilerplate?style=for-the-badge" alt="Simple Commerce on Packagist"></a>
-</p>
+This will publish:
+
+- a config file for the GitHub API
+- views in the `resources/views` directory
+- fieldsets in the `resources/fieldsets` directory
+
+## Usage
+
+### Add your GitHub token to your .env file
+
+You'll need to create a new personal access token. You can do so here: [https://github.com/settings/tokens/new](https://github.com/settings/tokens/new).
+
+The token only needs the `gist` scope.
+
+Add the token as `OH_SEE_GISTS_GITHUB_TOKEN` in your `.env` file.
+
+### Add the fieldset to your blueprint(s)
+
+The fieldset that will be published is named `gist_block`. You will need to update your blueprints to reference the fieldset wherever you want it to be used. As an example in bard:
+
+```yaml
+type: bard
+sets:
+  gist_content:
+    display: Gist
+    fields:
+      - import: gist_block
+```
+
+The `gist_content` name for the fieldset is **very** important. The add-on references this key so you cannot change it.
+
+### Use the partial in your templates
+
+The add-on publishes a partial for you to use in your templates to render the Gists. You can use it like so:
+
+<!-- prettier-ignore-start -->
+```html
+{{ bard_content }}
+    {{ if type == "gist_content" }}
+        {{ partial src="partials/gist_content" }}
+    {{ /if }}
+{{ /bard_content }}
+```
+<!-- prettier-ignore-end -->
