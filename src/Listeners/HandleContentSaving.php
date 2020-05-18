@@ -38,7 +38,7 @@ class HandleContentSaving
         $data->put('content', $content);
     }
 
-    private function buildGistData(array &$gistBlocks = [], string $title): array
+    private function buildGistData(array &$gistBlocks, string $title): array
     {
         $gistData = [
             'public' => true,
