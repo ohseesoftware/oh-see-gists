@@ -72,19 +72,23 @@ class HandleContentSaving
             }
         }
 
-        if (!empty($gistData['files'])) {
-            if (empty($gistId)) {
-                // Create a new Gist
-                $response = $this->github->gists()->create($gistData);
-
-                foreach ($gistBlocks as &$gistBlock) {
-                    $gistBlock['gist_id'] = $response['id'];
-                }
-            } else {
-                // Update existing Gist
-                $this->github->gists()->update($gistId, $gistData);
-            }
+        if (empty($gistData['files'])) {
+            return;
         }
+
+        if (empty($gistId)) {
+            // Create a new Gist
+            $response = $this->github->gists()->create($gistData);
+
+            foreach ($gistBlocks as &$gistBlock) {
+                $gistBlock['gist_id'] = $response['id'];
+            }
+        
+            return;
+        }
+
+        // Update existing Gist
+        $this->github->gists()->update($gistId, $gistData);
     }
 
     private function getGistBlocks(array &$content): array
@@ -93,16 +97,13 @@ class HandleContentSaving
 
         foreach ($content as &$block) {
             $type = $block['type'] ?? null;
-            if ($type !== 'set') {
+            $setType = $block['attrs']['values']['type'] ?? null;
+
+            if ($type !== 'set' || $setType !== 'gist_content') {
                 continue;
             }
 
-            $type = $block['attrs']['values']['type'] ?? null;
-            $code = $block['attrs']['values']['code'] ?? null;
-
-            if ($type === 'gist_content' || !empty($code)) {
-                $gistBlocks[] = &$block['attrs']['values'];
-            }
+            $gistBlocks[] = &$block['attrs']['values'];
         }
 
         return $gistBlocks;
