@@ -1,1 +1,5 @@
+{{ if gist_id == null || gist_filename == null }}
+<pre><code>{{ code | noparse | entities }}</code></pre>
+{{ else }}
 <script src="https://gist.github.com/{{ gist_id }}.js?file={{ gist_filename }}"></script>
+{{ /if }}

@@ -18,14 +18,8 @@ class ServiceProvider extends AddonServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/github.php' => config_path('github.php')
-            ], 'oh-see-gists');
-
-            $this->publishes([
-                __DIR__.'/../resources/fieldsets' => resource_path('fieldsets')
-            ], 'oh-see-gists');
-
-            $this->publishes([
+                __DIR__.'/../config/github.php' => config_path('github.php'),
+                __DIR__.'/../resources/fieldsets' => resource_path('fieldsets'),
                 __DIR__.'/../resources/views' => resource_path('views')
             ], 'oh-see-gists');
         }

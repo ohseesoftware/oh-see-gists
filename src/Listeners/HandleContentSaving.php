@@ -3,6 +3,7 @@
 namespace OhSeeSoftware\OhSeeGists\Listeners;
 
 use GrahamCampbell\GitHub\GitHubManager;
+use Illuminate\Support\Facades\Log;
 use Statamic\Events\Data\EntrySaving;
 
 class HandleContentSaving
@@ -21,21 +22,26 @@ class HandleContentSaving
             return;
         }
 
-        $data = $event->data->data();
-        $content = $data->get('content', []);
+        try {
+            $data = $event->data->data();
+            $content = $data->get('content', []);
 
-        $gistBlocks = $this->getGistBlocks($content);
-
-        if (empty($gistBlocks)) {
-            return;
+            $gistBlocks = $this->getGistBlocks($content);
+            
+            if (empty($gistBlocks)) {
+                return;
+            }
+    
+            $title = $data->get('title', 'Created by Oh See Gists add-on');
+    
+            $gistData = $this->buildGistData($gistBlocks, $title);
+            $this->saveGist($gistData, $gistBlocks);
+    
+            $data->put('content', $content);
+        } catch (\Throwable $e) {
+            Log::error("Error saving gist blocks");
+            Log::error($e);
         }
-
-        $title = $data['title'] ?? 'Created by Oh See Gists add-on';
-
-        $gistData = $this->buildGistData($gistBlocks, $title);
-        $this->saveGist($gistData, $gistBlocks);
-
-        $data->put('content', $content);
     }
 
     private function buildGistData(array &$gistBlocks, string $title): array
@@ -69,43 +75,45 @@ class HandleContentSaving
             return;
         }
 
-        $gistId = $this->getGistId($gistBlocks);
+        $gistId = $this->getGistIdFromBlocks($gistBlocks);
 
         if (empty($gistId)) {
-            $this->createGist($gistData, $gistBlocks);
-            return;
+            $response = $this->createGist($gistData, $gistBlocks);
+        } else {
+            $response = $this->updateGist($gistId, $gistData);
         }
 
-        $this->updateGist($gistId, $gistData);
+        $this->updateGistIds($response['id'], $gistBlocks);
     }
 
-    private function getGistId(array $gistBlocks): ?string
+    private function getGistIdFromBlocks(array $gistBlocks): ?string
     {
-        $gistId = null;
         foreach ($gistBlocks as &$gistBlock) {
             $gistBlockId = $gistBlock['gist_id'] ?? null;
 
-            if (!$gistBlockId || $gistId) {
-                continue;
+            if ($gistBlockId) {
+                return $gistBlockId;
             }
-
-            $gistId = $gistBlockId;
         }
-        return $gistId;
+
+        return null;
     }
 
-    private function createGist(array $gistData, array &$gistBlocks)
+    private function createGist(array $gistData, array &$gistBlocks): array
     {
-        $response = $this->github->gists()->create($gistData);
+        return $this->github->gists()->create($gistData);
+    }
 
+    private function updateGist(string $gistId, array $gistData): array
+    {
+        return $this->github->gists()->update($gistId, $gistData);
+    }
+
+    private function updateGistIds(string $gistId, array &$gistBlocks): void
+    {
         foreach ($gistBlocks as &$gistBlock) {
-            $gistBlock['gist_id'] = $response['id'];
+            $gistBlock['gist_id'] = $gistId;
         }
-    }
-
-    private function updateGist(string $gistId, array $gistData)
-    {
-        $this->github->gists()->update($gistId, $gistData);
     }
 
     private function getGistBlocks(array &$content): array
