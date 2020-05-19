@@ -16,7 +16,7 @@ fields:
     localizable: false
     display: Code
   extension:
-    character_limit: 3
+    character_limit: 4
     type: text
     localizable: false
     display: File Extension
