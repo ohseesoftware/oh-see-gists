@@ -6,6 +6,8 @@
 [![Downloads](https://img.shields.io/packagist/dt/ohseesoftware/oh-see-gists.svg?style=flat-square)](https://packagist.org/packages/ohseesoftware/oh-see-gists)
 [![MIT License](https://img.shields.io/github/license/ohseesoftware/oh-see-gists.svg?style=flat-square)](https://github.com/ohseesoftware/oh-see-gists/blob/master/LICENSE)
 
+Use GitHub Gists to embed your code snippets on your site. Example: https://ohseemedia.com/posts/hooks-can-only-be-called-inside-the-body-of-a-function-component-reactjs-error/
+
 ## Installation
 
 Install the add-on:
