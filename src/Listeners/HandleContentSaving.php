@@ -4,6 +4,7 @@ namespace OhSeeSoftware\OhSeeGists\Listeners;
 
 use GrahamCampbell\GitHub\GitHubManager;
 use Illuminate\Support\Facades\Log;
+use Ramsey\Uuid\Uuid;
 use Statamic\Events\Data\EntrySaving;
 
 class HandleContentSaving
@@ -27,11 +28,11 @@ class HandleContentSaving
             $content = $data->get('content', []);
 
             $gistBlocks = $this->getGistBlocks($content);
-            
+
             if (empty($gistBlocks)) {
                 return;
             }
-    
+
             $title = $data->get('title', 'Created by Oh See Gists add-on');
     
             $gistData = $this->buildGistData($gistBlocks, $title);
@@ -54,10 +55,10 @@ class HandleContentSaving
 
         foreach ($gistBlocks as &$gistBlock) {
             $extension = $gistBlock['extension'] ?? 'txt';
-
+            
             $filename = $gistBlock['gist_filename'] ?? null;
             if (!$filename) {
-                $filename = uniqid() . '.' . $extension;
+                $filename = Uuid::uuid4() . '.' . $extension;
                 $gistBlock['gist_filename'] = $filename;
             }
 
@@ -78,7 +79,7 @@ class HandleContentSaving
         $gistId = $this->getGistIdFromBlocks($gistBlocks);
 
         if (empty($gistId)) {
-            $response = $this->createGist($gistData, $gistBlocks);
+            $response = $this->createGist($gistData);
         } else {
             $response = $this->updateGist($gistId, $gistData);
         }
@@ -99,7 +100,7 @@ class HandleContentSaving
         return null;
     }
 
-    private function createGist(array $gistData, array &$gistBlocks): array
+    private function createGist(array $gistData): array
     {
         return $this->github->gists()->create($gistData);
     }

@@ -6,10 +6,20 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@master
+      - name: Checkout
+        if: github.ref == 'refs/heads/master'
+        run: git checkout "${GITHUB_REF:11}"
       - name: Composer Install
         run: composer install
       - name: PHPCS
         run: ./vendor/bin/phpcs src
+      - name: Run Tests
+        run: ./vendor/bin/phpunit
+      - name: Coveralls
+        if: github.ref == 'refs/heads/master'
+        run: ./vendor/bin/php-coveralls -v --coverage_clover build/coverage.xml --json_path build/coveralls-upload.json
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
   release:
     name: Release
     if: github.ref == 'refs/heads/master'

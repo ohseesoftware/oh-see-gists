@@ -9,7 +9,9 @@
     }
   },
   "autoload-dev": {
-    "psr-4": {}
+    "psr-4": {
+      "OhSeeSoftware\\OhSeeGists\\Tests\\": "tests"
+    }
   },
   "extra": {
     "statamic": {
@@ -25,16 +27,23 @@
   "require": {
     "graham-campbell/github": "^9.2@dev",
     "php-http/guzzle6-adapter": "^2.0",
+    "ramsey/uuid": "^4.0@dev",
     "statamic/cms": "^3.0@beta"
   },
   "require-dev": {
+    "orchestra/testbench": "^5.0",
     "nunomaduro/collision": "^4.2",
+    "php-coveralls/php-coveralls": "^2.2",
+    "phpunit/phpunit": "^8.5",
     "squizlabs/php_codesniffer": "^3.0@dev"
   },
   "minimum-stability": "dev",
   "scripts": {
     "lint": [
       "php-cs-fixer fix ./src"
+    ],
+    "test": [
+      "./vendor/bin/phpunit"
     ]
   },
   "config": {

@@ -2,6 +2,7 @@
 
 [![Current Release](https://img.shields.io/github/release/ohseesoftware/oh-see-gists.svg?style=flat-square)](https://github.com/ohseesoftware/oh-see-gists/releases)
 ![Build Status Badge](https://github.com/ohseesoftware/oh-see-gists/workflows/Build/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/ohseesoftware/oh-see-gists/badge.svg?branch=master)](https://coveralls.io/github/ohseesoftware/oh-see-gists?branch=master)
 [![Maintainability Score](https://img.shields.io/codeclimate/maintainability/ohseesoftware/oh-see-gists.svg?style=flat-square)](https://codeclimate.com/github/ohseesoftware/oh-see-gists)
 [![Downloads](https://img.shields.io/packagist/dt/ohseesoftware/oh-see-gists.svg?style=flat-square)](https://packagist.org/packages/ohseesoftware/oh-see-gists)
 [![MIT License](https://img.shields.io/github/license/ohseesoftware/oh-see-gists.svg?style=flat-square)](https://github.com/ohseesoftware/oh-see-gists/blob/master/LICENSE)
