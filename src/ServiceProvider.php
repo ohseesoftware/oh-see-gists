@@ -3,7 +3,7 @@
 namespace OhSeeSoftware\OhSeeGists;
 
 use OhSeeSoftware\OhSeeGists\Listeners\HandleContentSaving;
-use Statamic\Events\Data\EntrySaving;
+use Statamic\Events\EntrySaving;
 use Statamic\Providers\AddonServiceProvider;
 
 class ServiceProvider extends AddonServiceProvider

@@ -5,7 +5,7 @@ namespace OhSeeSoftware\OhSeeGists\Listeners;
 use GrahamCampbell\GitHub\GitHubManager;
 use Illuminate\Support\Facades\Log;
 use Ramsey\Uuid\Uuid;
-use Statamic\Events\Data\EntrySaving;
+use Statamic\Events\EntrySaving;
 
 class HandleContentSaving
 {
@@ -24,9 +24,8 @@ class HandleContentSaving
         }
 
         try {
-            $data = $event->data->data();
+            $data = $event->entry->data();
             $content = $data->get('content', []);
-
             $gistBlocks = $this->getGistBlocks($content);
 
             if (empty($gistBlocks)) {

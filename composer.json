@@ -28,7 +28,7 @@
     "graham-campbell/github": "^9.2@dev",
     "php-http/guzzle6-adapter": "^2.0",
     "ramsey/uuid": "^3.0",
-    "statamic/cms": "^3.0@beta"
+    "statamic/cms": "3.0.34"
   },
   "require-dev": {
     "orchestra/testbench": "^5.0",

@@ -10,7 +10,7 @@ use OhSeeSoftware\OhSeeGists\Tests\Stubs\GitHubGistsStub;
 use OhSeeSoftware\OhSeeGists\Tests\TestCase;
 use Ramsey\Uuid\Uuid;
 use Statamic\Entries\Entry;
-use Statamic\Events\Data\EntrySaving;
+use Statamic\Events\EntrySaving;
 
 class HandleContentSavingTest extends TestCase
 {
@@ -71,7 +71,7 @@ class HandleContentSavingTest extends TestCase
                 ],
             ])->andReturn([
                 'id' => '12345'
-            ])->once();
+            ])->atleast()->once();
         });
 
         // When
@@ -128,7 +128,7 @@ class HandleContentSavingTest extends TestCase
                         'content' => 'Some text'
                     ]
                 ],
-            ])->once();
+            ])->atleast()->once();
         });
 
         // When
@@ -170,7 +170,7 @@ class HandleContentSavingTest extends TestCase
                         'content' => 'echo "hello!"'
                     ]
                 ],
-            ])->once();
+            ])->atleast()->once();
         });
 
         // When
