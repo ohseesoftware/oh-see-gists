@@ -50,6 +50,10 @@ sets:
 
 The `gist_content` name for the fieldset is **very** important. The add-on references this key so you cannot change it.
 
+#### Heads Up!
+
+Your bard block has to be named `content` for oh-my-gists to save to your GitHub Gists - otherwise, you will be just creating code blocks on your statamic site.
+
 ### Use the partial in your templates
 
 The add-on publishes a partial for you to use in your templates to render the Gists. You can use it like so:
