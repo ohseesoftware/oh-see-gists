@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Test Suite" tests="4" assertions="8" errors="0" warnings="0" failures="0" skipped="0" time="0.200066">
-    <testsuite name="OhSeeSoftware\OhSeeGists\Tests\Unit\HandleContentSavingTest" file="/Users/owen/development/oh-see-gists/tests/Unit/HandleContentSavingTest.php" tests="4" assertions="8" errors="0" warnings="0" failures="0" skipped="0" time="0.200066">
-      <testcase name="it_listens_for_entry_saving_event" class="OhSeeSoftware\OhSeeGists\Tests\Unit\HandleContentSavingTest" classname="OhSeeSoftware.OhSeeGists.Tests.Unit.HandleContentSavingTest" file="/Users/owen/development/oh-see-gists/tests/Unit/HandleContentSavingTest.php" line="44" assertions="1" time="0.146777"/>
-      <testcase name="it_sends_request_to_github_to_create_new_gist" class="OhSeeSoftware\OhSeeGists\Tests\Unit\HandleContentSavingTest" classname="OhSeeSoftware.OhSeeGists.Tests.Unit.HandleContentSavingTest" file="/Users/owen/development/oh-see-gists/tests/Unit/HandleContentSavingTest.php" line="56" assertions="3" time="0.018349"/>
-      <testcase name="it_creates_multiple_files_per_gist_per_entry" class="OhSeeSoftware\OhSeeGists\Tests\Unit\HandleContentSavingTest" classname="OhSeeSoftware.OhSeeGists.Tests.Unit.HandleContentSavingTest" file="/Users/owen/development/oh-see-gists/tests/Unit/HandleContentSavingTest.php" line="86" assertions="2" time="0.018706"/>
-      <testcase name="it_sends_request_to_github_to_update_existing_gist" class="OhSeeSoftware\OhSeeGists\Tests\Unit\HandleContentSavingTest" classname="OhSeeSoftware.OhSeeGists.Tests.Unit.HandleContentSavingTest" file="/Users/owen/development/oh-see-gists/tests/Unit/HandleContentSavingTest.php" line="139" assertions="2" time="0.016234"/>
+  <testsuite name="Test Suite" tests="4" assertions="8" errors="0" warnings="0" failures="0" skipped="0" time="0.977596">
+    <testsuite name="OhSeeSoftware\OhSeeGists\Tests\Unit\HandleContentSavingTest" file="/Users/tjefford/www/sites/oh-see-gists/tests/Unit/HandleContentSavingTest.php" tests="4" assertions="8" errors="0" warnings="0" failures="0" skipped="0" time="0.977596">
+      <testcase name="it_listens_for_entry_saving_event" class="OhSeeSoftware\OhSeeGists\Tests\Unit\HandleContentSavingTest" classname="OhSeeSoftware.OhSeeGists.Tests.Unit.HandleContentSavingTest" file="/Users/tjefford/www/sites/oh-see-gists/tests/Unit/HandleContentSavingTest.php" line="44" assertions="1" time="0.856810"/>
+      <testcase name="it_sends_request_to_github_to_create_new_gist" class="OhSeeSoftware\OhSeeGists\Tests\Unit\HandleContentSavingTest" classname="OhSeeSoftware.OhSeeGists.Tests.Unit.HandleContentSavingTest" file="/Users/tjefford/www/sites/oh-see-gists/tests/Unit/HandleContentSavingTest.php" line="56" assertions="3" time="0.044234"/>
+      <testcase name="it_creates_multiple_files_per_gist_per_entry" class="OhSeeSoftware\OhSeeGists\Tests\Unit\HandleContentSavingTest" classname="OhSeeSoftware.OhSeeGists.Tests.Unit.HandleContentSavingTest" file="/Users/tjefford/www/sites/oh-see-gists/tests/Unit/HandleContentSavingTest.php" line="86" assertions="2" time="0.052169"/>
+      <testcase name="it_sends_request_to_github_to_update_existing_gist" class="OhSeeSoftware\OhSeeGists\Tests\Unit\HandleContentSavingTest" classname="OhSeeSoftware.OhSeeGists.Tests.Unit.HandleContentSavingTest" file="/Users/tjefford/www/sites/oh-see-gists/tests/Unit/HandleContentSavingTest.php" line="139" assertions="2" time="0.024383"/>
     </testsuite>
   </testsuite>
 </testsuites>
