@@ -48,7 +48,12 @@ sets:
       - import: gist_block
 ```
 
-The `gist_content` name for the fieldset is **very** important. The add-on references this key so you cannot change it.
+### Naming
+
+There are two **very important** naming conventions you have to follow:
+
+- The `gist_content` name for the fieldset is **very** important. The add-on references this key so you cannot change it.
+- Your bard block has to be named `content` for the add-on to save to your GitHub Gists. Otherwise, you will be just creating code blocks on your Statamic site.
 
 ### Use the partial in your templates
 
