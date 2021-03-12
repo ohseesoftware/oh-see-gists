@@ -1,4 +1,5 @@
 vendor
+build
 .DS_Store
 .phpunit.result.cache
 node_modules
