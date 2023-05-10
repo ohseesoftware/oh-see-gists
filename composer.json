@@ -1,52 +1,52 @@
 {
-  "name": "ohseesoftware/oh-see-gists",
-  "type": "statamic-addon",
-  "description": "A Statamic v3 add-on to use GitHub's Gists to host code blocks.",
-  "license": "MIT",
-  "autoload": {
-    "psr-4": {
-      "OhSeeSoftware\\OhSeeGists\\": "src"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "OhSeeSoftware\\OhSeeGists\\Tests\\": "tests"
-    }
-  },
-  "extra": {
-    "statamic": {
-      "name": "Oh See Gists",
-      "description": "A Statamic v3 add-on to use GitHub's Gists to host code blocks."
+    "name": "ohseesoftware/oh-see-gists",
+    "type": "statamic-addon",
+    "description": "A Statamic v3 add-on to use GitHub's Gists to host code blocks.",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "OhSeeSoftware\\OhSeeGists\\": "src"
+        }
     },
-    "laravel": {
-      "providers": [
-        "OhSeeSoftware\\OhSeeGists\\ServiceProvider"
-      ]
+    "autoload-dev": {
+        "psr-4": {
+            "OhSeeSoftware\\OhSeeGists\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Oh See Gists",
+            "description": "A Statamic v3 add-on to use GitHub's Gists to host code blocks."
+        },
+        "laravel": {
+            "providers": [
+                "OhSeeSoftware\\OhSeeGists\\ServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "graham-campbell/github": "^10.3",
+        "php-http/guzzle7-adapter": "^1.0",
+        "ramsey/uuid": "^4.0",
+        "statamic/cms": "^4.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.0",
+        "nunomaduro/collision": "^4.2",
+        "php-coveralls/php-coveralls": "^2.2",
+        "phpunit/phpunit": "^8.5",
+        "squizlabs/php_codesniffer": "^3.0"
+    },
+    "scripts": {
+        "lint": [
+            "php-cs-fixer fix ./src"
+        ],
+        "test": "./vendor/bin/phpunit",
+        "test-coverage": "./vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
     }
-  },
-  "require": {
-    "graham-campbell/github": "^10.3",
-    "php-http/guzzle7-adapter": "^1.0",
-    "ramsey/uuid": "^4.0",
-    "statamic/cms": "^3.0"
-  },
-  "require-dev": {
-    "orchestra/testbench": "^5.0",
-    "nunomaduro/collision": "^4.2",
-    "php-coveralls/php-coveralls": "^2.2",
-    "phpunit/phpunit": "^8.5",
-    "squizlabs/php_codesniffer": "^3.0"
-  },
-  "scripts": {
-    "lint": [
-      "php-cs-fixer fix ./src"
-    ],
-    "test": "./vendor/bin/phpunit",
-    "test-coverage": "./vendor/bin/phpunit --coverage-html coverage"
-  },
-  "config": {
-    "optimize-autoloader": true,
-    "preferred-install": "dist",
-    "sort-packages": true
-  }
 }
