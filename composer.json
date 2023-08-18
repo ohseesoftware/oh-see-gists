@@ -25,7 +25,7 @@
         }
     },
     "require": {
-        "graham-campbell/github": "^10.3",
+        "graham-campbell/github": ">=10.3",
         "php-http/guzzle7-adapter": "^1.0",
         "ramsey/uuid": "^4.0",
         "statamic/cms": "^4.0"
