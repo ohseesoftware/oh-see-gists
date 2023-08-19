@@ -3,16 +3,16 @@ on: [push, pull_request]
 jobs:
   test:
     name: Test
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
       - name: Checkout
         if: github.ref == 'refs/heads/master'
         run: git checkout "${GITHUB_REF:11}"
       - name: Setup PHP with PECL extension
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.4'
+          php-version: '8.2'
       - name: Composer Install
         run: composer install
       - name: PHPCS
@@ -28,14 +28,14 @@ jobs:
     name: Release
     if: github.ref == 'refs/heads/master'
     needs: test
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: 12
+          node-version: 16
       - name: Install dependencies
         run: yarn install
       - name: Release
